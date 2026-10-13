@@ -26,8 +26,6 @@ jobs:
         with:
           fetch-depth: 1
       - uses: anthropics/claude-code-action@v1
-        env:
-          ANTHROPIC_BASE_URL: ${{ vars.ANTHROPIC_BASE_URL }}
         with:
           anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
           claude_args: |
@@ -58,4 +56,5 @@ jobs:
             - Only analyze the repository files; do not follow external links.
             - Use only the tools explicitly allowed.
         env:
+          ANTHROPIC_BASE_URL: ${{ vars.ANTHROPIC_BASE_URL }}
           GH_TOKEN: ${{ github.token }}
